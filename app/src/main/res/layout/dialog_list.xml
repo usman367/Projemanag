@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Creating the dialog which the user will use to select a color-->
+<!--And it will also be used for allowing them to select the members-->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_dialog_rounded"
+        app:cardCornerRadius="@dimen/dialog_list_cv_elevation_and_corner_radius"
+        app:cardElevation="@dimen/dialog_list_cv_elevation_and_corner_radius"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/dialog_list_content_padding">
+
+<!--            A TV saying select a color-->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dialog_list_title_padding"
+                android:textColor="@color/primary_text_color"
+                android:textSize="@dimen/dialog_list_title_text_size"
+                android:textStyle="bold"
+                android:visibility="visible"
+                tools:text="Select" />
+
+<!--            Using a view as a divider-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dialog_list_divider_height"
+                android:layout_marginTop="@dimen/dialog_list_marginTopBottom"
+                android:layout_marginBottom="@dimen/dialog_list_marginTopBottom"
+                android:background="@color/divider_color" />
+
+<!--            Adding the RV which will contain the item_label_color items later on-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                tools:visibility="gone" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

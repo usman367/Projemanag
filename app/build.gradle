@@ -1,0 +1,77 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+
+    // Add a plugin here. (For firebase)
+    //apply plugin: 'com.google.gms.google-services' //Doesn't work
+    //Changed from apply plugin: to id
+    id 'com.google.gms.google-services'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.example.projemanag"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.5.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    // Add the google material library. This library is auto-added when you create a basic activity instead of empty activity
+    implementation 'com.google.android.material:material:1.1.0'
+
+    // Firebase Authentication dependency
+    implementation "com.google.firebase:firebase-auth:19.2.0"
+
+    // Firebase Cloud Firestore Dependency
+    implementation 'com.google.firebase:firebase-firestore:21.4.0'
+
+    // circular image view dependency
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    // Image loading library (From firebase)
+    // https://github.com/bumptech/glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    // Firebase Storage Dependency
+    implementation 'com.google.firebase:firebase-storage:19.1.1'
+
+    // A firebase messaging dependency
+    // For more details visit link: https://firebase.google.com/docs/cloud-messaging/android/client
+    // Firebase Messaging Dependency
+    //Changed from 20.1.1 to 20.1.2 because it was giving an error
+    implementation 'com.google.firebase:firebase-messaging:20.1.2'
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
